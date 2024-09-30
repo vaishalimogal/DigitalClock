@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+        }
+        #item{
+            display: flex;
+            align-items: center;
+
+        }
+        div{
+            content: "";
+            background-color: black;
+            position: absolute;
+            height: 15%;
+            width:100%;
+            z-index:-1 ;
+            
+            
+        }
+
+
+        
+        ul{
+            display: flex;
+        }
+       ul li{
+           background-color:black ;
+           color: white;
+           list-style: none;
+           font size: 1.3rem;
+
+
+       }
+       ul li a{
+           color: white;
+           display: block;
+           padding: 20px 20px;
+           border-radius:15px ;
+           text-decoration: none;
+
+       }
+       ul li a:hover{
+
+           background-color: white;
+           color: black;
+       }
+
+       #home{
+           display: flex;
+           flex-direction: column;
+           height: 400px;
+           padding: 3px 200px;
+           justify-content: center;
+           align-items: center;
+           background:url("https://en.free-wallpapers.su/data/media/2319/big/fd0244.jpg");
+
+      
+       }
+       .vaish{
+           font-size: 2.8rem;
+           padding: 12px;
+       }
+       .btn{
+           padding: 10px 30px;
+           border: 2px solid skyblue;
+           background-color: brown;
+           color: white;
+
+        }
+        .btn:hover{
+            background-color: rgb(127, 255, 136);
+            color: black;
+            border-radius: 20px;
+            cursor: pointer;
+
+       }
+       p{
+           color: white;
+           text-align: center;
+           font: 3rem;
+
+       }
+       h1{
+        color: white;}
+    
+    .mogal{
+      display:inline-block;
+      flex-direction: row;
+      height: 300px;
+      width: 250px;
+      border: 2px solid black;
+      margin: 20px;
+     position:relative;
+      box-shadow: 2px 2px 20px rgb(14, 13, 14);
+      justify-content: center;
+    }
+      .mogal img{
+          height:50%;
+          width:100%;
+          text-align: center;
+            justify-content: center;
+            color:black;
+            cursor: pointer;
+
+      }
+      .mogal img:hover{
+          text-align: center;
+          background-color:white;
+          color:black;
+          cursor: pointer;
+          justify-content: center;
+
+        }
+        .mogal p{
+            justify-content: center;
+            color:white;
+            text-align: center;
+            justify-content: center;
+        }
+        h2{
+            
+           color:white;
+           text-align: center;
+           justify-content: center;
+           }
+           h3{
+               color: black;
+               text-align: center;
+           justify-content: center;
+          
+
+           }
+        
+            
+
+
+  
+    
+    </style>
+   
+</head>
+<body>
+    <div class="container "></div>
+    <ul>
+        <li  class="item"><a href="#">Home </a></li>
+        <li class="item"> <a href="#">services </a></li>
+        <li class="item"> <a href="#">About us </a> </li>
+        <li class="item"> <a href="#">Contact us</a> </li>
+        
+    </ul>
+
+    <section id="home">
+        
+  <h1 class="vaish">Welcome to Vfood</h1>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe assumenda, non accusantium ducimus nihil reprehenderit minima iure ipsum porro, mollitia voluptatibus dignissimos, optio aliquid nemo?</p>
+        
+        <button class="btn">Order Now</button>
+
+    </section>
+    <section>
+        <h3>Our Services</h3>
+        
+            <div class="mogal" id="box1"><img src="https://tse1.mm.bing.net/th?id=OIP.6sglb3KGXH92W3UK5Njh5gHaEm&pid=Api&P=0&h=180">
+                <h2>Pav Bhaji</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quis magnam illo? Natus, in? Animi.</p>
+
+            <button class="btn">Order Now</button>
+
+        </div>
+            <div class="mogal" id="box2"><img src="https://tse4.mm.bing.net/th?id=OIP.LmUjT-DjvRB8giRxfry1rgHaEo&pid=Api&P=0&h=180">
+                <h2>Pizza</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa ipsum nisi exercitationem quis, labore asperiores.</p>
+
+           <button class="btn">Order Now</button>
+
+        </div>
+        <div class="mogal" id="box3"><img src="https://tse1.mm.bing.net/th?id=OIP.Sb_e1OqhvwrBftVMe0NF7AHaJ4&pid=Api&P=0&h=180">
+            <h2>Noodles</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum architecto harum facilis nulla debitis voluptas.</p>
+
+       <button class="btn">Order Now</button>
+ 
+    </div>
+</div>
+        
+
+    </section>
+    </body>
+   
+   
+
+

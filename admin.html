@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #ad4747;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <form id="taskForm">
+            <input type="text" id="project" placeholder="Project" required>
+            <input type="text" id="task" placeholder="Task" required>
+            <input type="text" id="remark" placeholder="Remark" required>
+            <input type="text" id="member" placeholder="Member" required>
+            <input type="text" id="target" placeholder="Target" required>
+            <input type="date" id="date" required>
+            <input type="date" id="closedDate">
+            <button type="submit">Add Task</button>
+        </form>
+        
+        <table id="taskTable">
+            <thead>
+                <tr>
+                    <th>Project</th>
+                    <th>Task</th>
+                    <th>Remark</th>
+                    <th>Member</th>
+                    <th>Target</th>
+                    <th>Date</th>
+                    <th>Closed Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic rows will be added here -->
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        document.getElementById('taskForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+    
+    // Get values from the form
+    const project = document.getElementById('project').value;
+    const task = document.getElementById('task').value;
+    const remark = document.getElementById('remark').value;
+    const member = document.getElementById('member').value;
+    const target = document.getElementById('target').value;
+    const date = document.getElementById('date').value;
+    const closedDate = document.getElementById('closedDate').value;
+
+    // Create a new row and cells
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td>${project}</td>
+        <td>${task}</td>
+        <td>${remark}</td>
+        <td>${member}</td>
+        <td>${target}</td>
+        <td>${date}</td>
+        <td>${closedDate}</td>
+    `;
+
+    // Append the new row to the table body
+    document.querySelector('#taskTable tbody').appendChild(newRow);
+
+    // Clear the form inputs
+    document.getElementById('taskForm').reset();
+});
+
+    </script>
+</body>
+</html>

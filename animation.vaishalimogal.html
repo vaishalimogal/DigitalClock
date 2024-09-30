@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            background-color:red;
+            position: absolute;
+            animation-name:moving ;
+            animation-duration: 4s;
+            animation-delay: 1s;
+            animation-iteration-count:infinite ;
+
+        }
+        @keyframes moving
+        {
+            0%{
+                background-color: black;
+                left:0px;
+                top:0px;
+            }
+            25%{
+                background-color: green;
+                left:200px;
+                top:0px;
+            }
+            50%{
+                background-color: chartreuse;
+                left:200px;
+                top:200px;
+
+            }
+            75%{
+                background-color: deeppink;
+                left:0px;
+                top:200px;
+            }
+            100%{
+                background-color: mediumblue;
+                left:0px;
+                top:0px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

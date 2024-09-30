@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga Website</title>
+<style>
+    /* Basic Styling */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    nav {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+    }
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    nav ul li a:hover {
+        color: #ffd700; /* Change color on hover */
+    }
+    /* Services dropdown */
+    .services-dropdown {
+        position: relative;
+    }
+    .services-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        min-width: 150px;
+        z-index: 1;
+    }
+    .services-dropdown-content a {
+        color: #fff;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .services-dropdown-content a:hover {
+        background-color: #555;
+    }
+    .services-dropdown:hover .services-dropdown-content {
+        display: block;
+    }
+    /* Container for yoga poses */
+    .yoga-poses {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+    .yoga-poses img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li class="services-dropdown">
+            <a href="#">Services</a>
+            <div class="services-dropdown-content">
+                <a href="#">Yoga Classes</a>
+                <a href="#">Meditation Sessions</a>
+                <a href="#">Private Lessons</a>
+                <a href="#">Yoga Workshops</a>
+                <a href="#">Online Resources</a>
+            </div>
+        </li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Routine</a></li>
+    </ul>
+</nav>
+
+<div class="yoga-poses">
+    <img src="yoga_pose_1.jpg" alt="Yoga Pose 1">
+    <img src="yoga_pose_2.jpg" alt="Yoga Pose 2">
+    <img src="yoga_pose_3.jpg" alt="Yoga Pose 3">
+    <img src="yoga_pose_4.jpg" alt="Yoga Pose 4">
+    <img src="yoga_pose_5.jpg" alt="Yoga Pose 5">
+</div>
+
+</body>
+</html>

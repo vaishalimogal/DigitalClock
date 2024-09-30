@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Create Rectangles</title>
+    <style>
+        #canvas {
+            
+            border: 1px solid black;
+            position: relative;
+            width: 100%;
+            height: 700px;
+            overflow: hidden;
+        }
+        .rectangle {
+            position: absolute;
+            background-color: rgba(228, 233, 237, 0.7);
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Rectangles Automatically</h1>
+    <label for="x-axis">Width:</label>
+    <input type="number" id="x-axis" placeholder="Width in pixels">
+    <label for="y-axis">Height:</label>
+    <input type="number" id="y-axis" placeholder="Height in pixels">
+    
+    <div id="canvas"></div>
+
+    <script>
+        function createRectangles() {
+            // Get the dimensions from user input
+            const xAxis = parseInt(document.getElementById('x-axis').value);
+            const yAxis = parseInt(document.getElementById('y-axis').value);
+            
+            // Check if the values are valid
+            if (isNaN(xAxis) || isNaN(yAxis) || xAxis <= 0 || yAxis <= 0) {
+                return; // Don't do anything if the values are invalid
+            }
+
+            // Create a new div element for the rectangle
+            const rectangle = document.createElement('div');
+            rectangle.classList.add('rectangle');
+
+            // Set the dimensions of the rectangle
+            rectangle.style.width = xAxis + 'px';
+            rectangle.style.height = yAxis + 'px';
+
+            // Position the rectangle randomly within the canvas
+            const canvas = document.getElementById('canvas');
+            const maxX = canvas.clientWidth - xAxis;
+            const maxY = canvas.clientHeight - yAxis;
+            const posX = Math.floor(Math.random() * maxX);
+            const posY = Math.floor(Math.random() * maxY);
+            rectangle.style.left = posX + 'px';
+            rectangle.style.top = posY + 'px';
+
+            // Clear the canvas before adding a new rectangle
+            canvas.innerHTML = '';  // Remove existing rectangles
+            // Append the rectangle to the canvas
+            canvas.appendChild(rectangle);
+        }
+
+        // Add event listeners to the input fields
+        document.getElementById('x-axis').addEventListener('input', createRectangles);
+        document.getElementById('y-axis').addEventListener('input', createRectangles);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .memory-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+}
+
+.card {
+  width: 80px;
+  height: 80px;
+  background-color: #ccc;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+  </style>
+</head>
+<body>
+  <div class="memory-game">
+    <div class="cards" id="cards"></div>
+    <button onclick="resetGame()">Reset</button>
+  </div>
+  <script>
+const symbols = ['🍎', '🍉', '🍌', '🍒', '🍓', '🍍', '🥝', '🥥'];
+let cards = [];
+let flippedCards = [];
+let matchedCards = [];
+
+function createDeck() {
+  const doubleSymbols = symbols.concat(symbols);
+  doubleSymbols.sort(() => Math.random() - 0.5);
+
+  cards = doubleSymbols.map(symbol => ({
+    symbol: symbol,
+    isFlipped: false,
+    isMatched: false
+  }));
+
+  renderCards();
+}
+
+function renderCards() {
+  const cardsElement = document.getElementById('cards');
+  cardsElement.innerHTML = '';
+
+  cards.forEach((card, index) => {
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('card');
+    if (card.isMatched) {
+      cardElement.textContent = card.symbol;
+      cardElement.classList.add('matched');
+    } else if (card.isFlipped) {
+      cardElement.textContent = card.symbol;
+    } else {
+      cardElement.textContent = '';
+      cardElement.addEventListener('click', () => flipCard(index));
+    }
+    cardsElement.appendChild(cardElement);
+  });
+}
+
+function flipCard(index) {
+  if (flippedCards.length < 2 && !cards[index].isFlipped) {
+    cards[index].isFlipped = true;
+    flippedCards.push(index);
+    renderCards();
+
+    if (flippedCards.length === 2) {
+      checkMatch();
+    }
+  }
+}
+
+function checkMatch() {
+  const [index1, index2] = flippedCards;
+  if (cards[index1].symbol === cards[index2].symbol) {
+    cards[index1].isMatched = true;
+    cards[index2].isMatched = true;
+    matchedCards.push(index1, index2);
+  } else {
+    setTimeout(() => {
+      cards[index1].isFlipped = false;
+      cards[index2].isFlipped = false;
+      renderCards();
+    }, 1000);
+  }
+
+  flippedCards = [];
+  if (matchedCards.length === cards.length) {
+    alert('Congratulations! You won the game!');
+  }
+}
+
+function resetGame() {
+  cards = [];
+  flippedCards = [];
+  matchedCards = [];
+  createDeck();
+}
+
+createDeck();</script>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<!-- This code creates a simple memory game where users need to match pairs of cards with identical symbols. The game randomly shuffles the cards on each reset. Players can flip over two cards at a time, and if they match, the cards remain face up. Otherwise, they flip back over. The game continues until all pairs are matched. -->
+
+
+
+

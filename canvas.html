@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Shapes with User Input</title>
+    <style>
+        /* styles.css */
+canvas {
+    border: 1px solid black;
+    background-color: #f0f0f0;
+}
+
+.controls {
+    margin-bottom: 10px;
+}
+
+input {
+    margin-right: 10px;
+    width: 80px;
+}
+
+button {
+    margin-right: 10px;
+}
+
+    </style>
+</head>
+<body>
+      
+<div class="controls">
+        
+     
+    <label for="xInput">X:</label>
+            <input type="number" id="xInput" placeholder="X coordinate" min="0" />
+            
+      
+    <label for="yInput">Y:</label>
+            <input type="number" id="yInput" placeholder="Y coordinate" min="0" />
+            
+           
+    <label for="sizeInput">Size:</label>
+            
+       
+    <input type="number" id="sizeInput" placeholder="Size (px)" min="1" />
+            
+      
+    <button onclick="drawShape('circle')">Draw Circle</button>
+            
+        
+    <button onclick="drawShape('rectangle')">Draw Rectangle</button>
+            <button onclick="drawShape('triangle')">Draw Triangle</button>
+        </div>
+        <canvas id="myCanvas" width="500" height="400"></canvas>
+        <script src="script.js"></script>
+    
+    <
+    <canvas id="myCanvas" width="500" height="400"></canvas>
+    <script src="script.js"></script>
+    <script>
+      // script.js
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+function drawShape(shape) {
+    const xInput = document.getElementById('xInput');
+    const yInput = document.getElementById('yInput');
+    const sizeInput = document.getElementById('sizeInput');
+    
+    // Get x and y coordinates from input fields or default to canvas center
+    const x = parseInt(xInput.value, 10) || canvas.width / 2;
+    const y = parseInt(yInput.value, 10) || canvas.height / 2;
+    // Get size from input field or default to 100
+    const size = parseInt(sizeInput.value, 10) || 100;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear previous drawings
+
+    if (shape === 'circle') {
+        drawCircle(x, y, size);
+    } else if (shape === 'rectangle') {
+        drawRectangle(x, y, size);
+    } else if (shape === 'triangle') {
+        drawTriangle(x, y, size);
+    }
+}
+
+function drawCircle(x, y, size) {
+    ctx.beginPath();
+    ctx.arc(x, y, size / 2, 0, Math.PI * 2);
+    ctx.fillStyle = 'lightcoral';
+    ctx.fill();
+    ctx.strokeStyle = 'darkred';
+    ctx.stroke();
+}
+
+function drawRectangle(x, y, size) {
+    const width = size;
+    const height = size;
+    // Calculate the top-left corner of the rectangle to center it
+    const xPos = x - width / 2;
+    const yPos = y - height / 2;
+
+    ctx.fillStyle = 'lightblue';
+    ctx.fillRect(xPos, yPos, width, height);
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 5;
+    ctx.strokeRect(xPos, yPos, width, height);
+}
+
+function drawTriangle(x, y, size) {
+    const height = Math.sqrt(3) / 2 * size; // Height of an equilateral triangle
+    const x1 = x;
+    const y1 = y - height / 2;
+    const x2 = x - size / 2;
+    const y2 = y + height / 2;
+    const x3 = x + size / 2;
+    const y3 = y + height / 2;
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.lineTo(x3, y3);
+    ctx.closePath();
+    ctx.fillStyle = 'lightgreen';
+    ctx.fill();
+    ctx.strokeStyle = 'darkgreen';
+    ctx.stroke();
+}
+
+
+    </script>
+</body>
+</html>

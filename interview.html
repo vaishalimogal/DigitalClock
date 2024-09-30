@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #f31c1c;
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    float: left;
+}
+
+nav {
+    float: right;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#hero {
+    background: url('hero.jpg') center center/cover;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+}
+
+#hero h2 {
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background: #d41717;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#destinations {
+    padding: 50px 0;
+}
+
+.destination {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.destination img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+#featured-trips {
+    padding: 50px 0;
+}
+
+.trip {
+    margin-bottom: 40px;
+}
+
+.trip img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+footer {
+    background: #d02121;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Travel Adventures</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Destinations</a></li>
+                    <li><a href="#">Trips</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h2>Explore the World with Us</h2>
+            <p>Plan your next adventure with us and explore breathtaking destinations.</p>
+            <a href="#" class="btn">Book Now</a>
+        </div>
+    </section>
+
+    <section id="destinations">
+        <div class="container">
+            <h2>Popular Destinations</h2>
+            <div class="destination">
+                <img src="destination1.jpg" alt="Destination 1">
+                <h3>Destination 1</h3>
+            </div>
+            <div class="destination">
+                <img src="destination2.jpg" alt="Destination 2">
+                <h3>Destination 2</h3>
+            </div>
+            <div class="destination">
+                <img src="destination3.jpg" alt="Destination 3">
+                <h3>Destination 3</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-trips">
+        <div class="container">
+            <h2>Featured Trips</h2>
+            <div class="trip">
+                <img src="trip1.jpg" alt="Trip 1">
+                <h3>Trip 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel turpis eget lorem commodo lacinia.</p>
+            </div>
+            <div class="trip">
+                <img src="trip2.jpg" alt="Trip 2">
+                <h3>Trip 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel turpis eget lorem commodo lacinia.</p>
+            </div>
+            <div class="trip">
+                <img src="trip3.jpg" alt="Trip 3">
+                <h3>Trip 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel turpis eget lorem commodo lacinia.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Contact us: info@traveladventures.com</p>
+        </div>
+    </footer>
+</body>
+</html>

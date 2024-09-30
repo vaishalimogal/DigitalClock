@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Rectangles with Margins</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* styles.css */
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    }  
+     canvas {
+            border: 1px solid black;
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+        .rectangle {
+            position: absolute;
+            background-color: rgba(100, 150, 200, 0.7);
+            border: 1px solid #000;
+        }
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.input-section {
+    width: 30%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.rectangles-section {
+    background-image: url('graph.jpg');
+    background-repeat: no-repeat;
+    width: 70%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.outer-rectangle {
+    border: 2px solid black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.inner-rectangle {
+    position: absolute;
+    background-color:rgba(0,0,0,0.7);
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-section">
+            <h2>Enter Dimensions and Margins</h2>
+            <label for="x-axis">Width of Outer Rectangle (x):</label>
+            <input type="number" id="x-axis" min="1" />
+            <br />
+            <label for="y-axis">Height of Outer Rectangle (y):</label>
+            <input type="number" id="y-axis" min="1" />
+            <br />
+            <label for="margin-top">Top Margin:</label>
+            <input type="number" id="margin-top" min="0" />
+            <br />
+            <label for="margin-right">Right Margin:</label>
+            <input type="number" id="margin-right" min="0" />
+            <br />
+            <label for="margin-bottom">Bottom Margin:</label>
+            <input type="number" id="margin-bottom" min="0" />
+            <br />
+            <label for="margin-left">Left Margin:</label>
+            <input type="number" id="margin-left" min="0" />
+            <br />
+            <button onclick="createRectangles()">Create Rectangles</button>
+        </div>
+        <div class="rectangles-section" id="rectangles-section">
+            <div class="outer-rectangle" id="outer-rectangle">
+                <div class="inner-rectangle" id="inner-rectangle"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // script.js
+    function createRectangles() {
+    // Get the dimensions and margins from user input
+    const xAxis = parseInt(document.getElementById('x-axis').value);
+    const yAxis = parseInt(document.getElementById('y-axis').value);
+           
+
+   
+
+
+    
+    const marginTop = parseInt(document.getElementById('margin-top').value) || 0;
+    const marginRight = parseInt(document.getElementById('margin-right').value) || 0;
+    const marginBottom = parseInt(document.getElementById('margin-bottom').value) || 0;
+    const marginLeft = parseInt(document.getElementById('margin-left').value) || 0;
+    const innerRectangle = document.getElementById('inner-rectangle');
+    const outerRectangle = document.getElementById('outer-rectangle');
+
+    // Set the size of the outer rectangle
+    outerRectangle.style.width = `${xAxis}px`;
+    outerRectangle.style.height = `${yAxis}px`;
+
+    // Calculate the size of the inner rectangle
+    const innerWidth = xAxis - marginLeft - marginRight;
+    const innerHeight = yAxis - marginTop - marginBottom;
+
+    // Set the size and position of the inner rectangle
+    innerRectangle.style.width = `${innerWidth}px`;
+    innerRectangle.style.height = `${innerHeight}px`;
+    innerRectangle.style.top = `${marginTop}px`;
+    innerRectangle.style.left = `${marginLeft}px`;
+}
+
+    </script>
+</body>
+</html>

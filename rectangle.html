@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rectangles with Margin and Background</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* styles.css */
+html, body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    
+}
+
+.controls {
+
+    padding: 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+input {
+    margin: 0 10px;
+    width: 80px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+#container {
+    width:100%;
+    height: 700px; /* Adjust height as needed */
+    background-image: url('graph.jpg');
+    background-size: cover; /* Cover the container */
+    background-repeat: no-repeat; /* Prevent repeating */
+    border: 2px solid black;
+    margin: 20px auto;
+}
+
+.rectangle {
+    position: absolute;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 1); /* Semi-transparent white */
+}
+
+</style>
+</head>
+<body>
+<div class="controls">
+        <label for="xInput">X:</label>
+        <input type="number" id="xInput" placeholder="X coordinate" min="0" />
+        <label for="yInput">Y:</label>
+        <input type="number" id="yInput" placeholder="Y coordinate" min="0" />
+        <label for="marginInput">Margin:</label>
+        <input type="number" id="marginInput" placeholder="Margin (px)" min="0" />
+        <button onclick="drawRectangles()">Draw Rectangles</button>
+        
+</div>
+
+    <div id="container">
+        <!-- Rectangles will be drawn here -->
+    </div>
+    
+    
+    
+    
+    
+    <script src="script.js"></script>
+    <script>
+    // script.js
+    function drawRectangles() {
+    const container = document.getElementById('container');
+    const xInput = document.getElementById('xInput');
+    const yInput = document.getElementById('yInput');
+    const marginInput = document.getElementById('marginInput');
+    
+    
+    const x = parseInt(xInput.value, 10) || 0;
+    const y = parseInt(yInput.value, 10) || 0;
+    const margin = parseInt(marginInput.value, 10) || 0;
+
+    // Clear previous rectangles
+    container.innerHTML = '';
+
+    // Create the outer rectangle
+    const outerRect = document.createElement('div');
+    outerRect.className = 'rectangle';
+    outerRect.style.width = '300px'; // Adjust width as needed
+    outerRect.style.height = '200px'; // Adjust height as needed
+    outerRect.style.top = `${y}px`;
+    outerRect.style.left = `${x}px`;
+    container.appendChild(outerRect);
+
+    // Create the inner rectangle
+    const innerRect = document.createElement('div');
+    innerRect.className = 'rectangle';
+    innerRect.style.width = '100px'; // Adjust width as needed
+    innerRect.style.height = '100px'; // Adjust height as needed
+    innerRect.style.top = `${y + margin}px`;
+    innerRect.style.left = `${x + margin}px`;
+    innerRect.style.bottom= `${y + margin}px`;
+    innerRect.style.right= `${x + margin}px`;
+    container.appendChild(innerRect);
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Add Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-panel {
+    width: 1100px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+    </style>
+</head>
+<body>
+    <div class="admin-panel">
+        <h1>Add New Project</h1>
+        <form id="projectForm">
+            <div class="form-group">
+                <label for="no">No:</label>
+                <input type="text" id="no" name="no" required>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="numbers">Numbers:</label>
+                <input type="text" id="numbers" name="numbers" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="projectType">Project Type:</label>
+                <input type="text" id="projectType" name="projectType" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="projectLocation">Project Location:</label>
+                <input type="text" id="projectLocation" name="projectLocation" required>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Budget:</label>
+                <input type="number" id="budget" name="budget" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <input type="text" id="status" name="status" required>
+            </div>
+
+            <div class="form-group">
+                <label for="note">Note:</label>
+                <input type="text" id="note" name="note" required>
+            </div>
+
+            <div class="form-group">
+                <label for="stage">Stage:</label>
+                <input type="text" id="stage" name="stage" required>
+            </div>
+
+            <div class="form-group">
+                <label for="projectStartingDate">Project Starting Date:</label>
+                <input type="date" id="projectStartingDate" name="projectStartingDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="additionalNotes">Additional Notes:</label>
+                <textarea id="additionalNotes" name="additionalNotes"></textarea>
+            </div>
+
+            <button type="submit">Add Project</button>
+        </form>
+
+        <h2>Project List</h2>
+        <table id="projectTable">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Numbers</th>
+                    <th>Address</th>
+                    <th>Project Type</th>
+                    <th>Description</th>
+                    <th>Project Location</th>
+                    <th>Budget</th>
+                    <th>Status</th>
+                    <th>Note</th>
+                    <th>Stage</th>
+                    <th>Project Starting Date</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Projects will be added here dynamically -->
+            </tbody>
+        </table>
+    </div>
+     <script>
+        document.getElementById("projectForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Collect form data
+    const formData = {
+        no: document.getElementById("no").value,
+        name: document.getElementById("name").value,
+        numbers: document.getElementById("numbers").value,
+        address: document.getElementById("address").value,
+        projectType: document.getElementById("projectType").value,
+        description: document.getElementById("description").value,
+        projectLocation: document.getElementById("projectLocation").value,
+        budget: document.getElementById("budget").value,
+        status: document.getElementById("status").value,
+        note: document.getElementById("note").value,
+        stage: document.getElementById("stage").value,
+        projectStartingDate: document.getElementById("projectStartingDate").value,
+        additionalNotes: document.getElementById("additionalNotes").value
+    };
+
+    // Add the form data to the table
+    const tableBody = document.querySelector("#projectTable tbody");
+    const newRow = document.createElement("tr");
+
+    newRow.innerHTML = `
+        <td>${formData.no}</td>
+        <td>${formData.name}</td>
+        <td>${formData.numbers}</td>
+        <td>${formData.address}</td>
+        <td>${formData.projectType}</td>
+        <td>${formData.description}</td>
+        <td>${formData.projectLocation}</td>
+        <td>${formData.budget}</td>
+        <td>${formData.status}</td>
+        <td>${formData.note}</td>
+        <td>${formData.stage}</td>
+        <td>${formData.projectStartingDate}</td>
+        <td>${formData.additionalNotes}</td>
+    `;
+
+    tableBody.appendChild(newRow);
+
+    // Optionally clear the form after submission
+    document.getElementById("projectForm").reset();
+});
+
+     </script>
+    <script src="script.js"></script>
+</body>
+</html>
